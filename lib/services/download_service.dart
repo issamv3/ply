@@ -2,7 +2,6 @@ import 'dart:async';
 import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
-import 'package:gal/gal.dart';
 import 'package:http/http.dart' as http;
 import 'package:path_provider/path_provider.dart';
 import 'package:video_player/video_player.dart';
@@ -274,9 +273,8 @@ class DownloadService {
             status: 'Saving…',
             thumbnailPath: thumbnailPath));
         await NotificationService.showProgress(
-            title: title, body: 'Saving to gallery…', progress: 90);
+            title: title, body: 'Saving…', progress: 90);
         await File(p.videoPath).copy(outputPath);
-        await Gal.putVideo(outputPath, album: 'Ply');
         await _persistToLibrary(
           id: fileId,
           title: title,
@@ -411,7 +409,6 @@ class DownloadService {
             id: id, title: title, progress: 98, status: 'Saving…'));
         await NotificationService.showProgress(
             title: title, body: 'Saving to gallery…', progress: 98);
-        await Gal.putVideo(outputPath, album: 'Ply');
         await _persistToLibrary(
           id: fileId,
           title: title,

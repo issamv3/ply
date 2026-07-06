@@ -1714,13 +1714,16 @@ class _PlayerScreenState extends State<PlayerScreen>
               width: 6,
               child: RotatedBox(
                 quarterTurns: 3,
-                child: LinearProgressIndicator(
-                  value: value,
-                  backgroundColor: Colors.white24,
-                  valueColor:
-                      const AlwaysStoppedAnimation<Color>(Colors.white),
-                  minHeight: 6,
-                  borderRadius: BorderRadius.circular(3),
+                child: Directionality(
+                  textDirection: TextDirection.ltr,
+                  child: LinearProgressIndicator(
+                    value: value,
+                    backgroundColor: Colors.white24,
+                    valueColor:
+                        const AlwaysStoppedAnimation<Color>(Colors.white),
+                    minHeight: 6,
+                    borderRadius: BorderRadius.circular(3),
+                  ),
                 ),
               ),
             ),
